@@ -12,7 +12,6 @@ CONFIG_DIR="${CONFIG_DIR:-$HOME/.config}"
 PACMAN_PKGS=(
     base-devel
     git
-    yay
     neovim
     alacritty
     signal-desktop
@@ -24,6 +23,22 @@ AUR_PKGS=(
     protonvpn
     zen-browser-bin
 )
+
+install_yay() {
+    if command -v yay &>/dev/null; then
+        echo "yay is already installed"
+        return
+    fi
+    
+    echo "Installing yay..."
+    TEMP=$(mktemp -d)
+    cd "$TEMP"
+    git clone https://aur.archlinux.org/yay.git
+    cd yay
+    makepkg -si --noconfirm
+    cd ~
+    rm -rf "$TEMP"
+}
 
 install_packages() {
     echo "Installing packages..."
