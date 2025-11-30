@@ -57,6 +57,7 @@ load_configs() {
 # Main
 echo "Arch Linux Setup - Niri + DMS"
 
+install_yay
 install_packages
 install_dms
 load_configs
