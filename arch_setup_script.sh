@@ -10,8 +10,6 @@ CONFIG_DIR="${CONFIG_DIR:-$HOME/.config}"
 
 # Package lists
 PACMAN_PKGS=(
-    base-devel
-    git
     neovim
     alacritty
     signal-desktop
@@ -71,6 +69,10 @@ load_configs() {
 
 # Main
 echo "Arch Linux Setup - Niri + DMS"
+
+# Install base dependencies first
+echo "Installing base dependencies..."
+sudo pacman -Syu --needed --noconfirm base-devel git
 
 install_yay
 install_packages
