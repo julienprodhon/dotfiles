@@ -10,8 +10,6 @@ CONFIG_DIR="${CONFIG_DIR:-$HOME/.config}"
 
 # Package lists
 PACMAN_PKGS=(
-    curl
-    wget
     neovim
     alacritty
     signal-desktop
@@ -25,6 +23,7 @@ AUR_PKGS=(
     zen-browser-bin
     keepass-xc
     zsh
+    tmux
 )
 
 install_yay() {
@@ -77,7 +76,7 @@ echo "Arch Linux Setup - Niri + DMS"
 
 # Install base dependencies first
 echo "Installing base dependencies..."
-sudo pacman -Syu --needed --noconfirm base-devel git
+sudo pacman -Syu --needed --noconfirm base-devel git curl wget
 
 install_yay
 install_packages
