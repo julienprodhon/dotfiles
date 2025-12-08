@@ -20,6 +20,7 @@ AUR_PKGS=(
     obsidian
     protonvpn
     zen-browser-bin
+    keepass-xc
 )
 
 install_yay() {
