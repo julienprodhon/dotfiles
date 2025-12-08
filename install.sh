@@ -10,12 +10,15 @@ CONFIG_DIR="${CONFIG_DIR:-$HOME/.config}"
 
 # Package lists
 PACMAN_PKGS=(
+    curl
+    wget
     neovim
     alacritty
     signal-desktop
 )
 
 AUR_PKGS=(
+    qt5-wayland
     niri
     obsidian
     protonvpn
