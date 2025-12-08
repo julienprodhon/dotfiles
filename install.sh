@@ -16,12 +16,16 @@ PACMAN_PKGS=(
 )
 
 AUR_PKGS=(
+    qt5-wayland
     niri
+    sddm
     obsidian
     protonvpn
     zen-browser-bin
     keepass-xc
     zsh
+    tmux
+    telegram-desktop
 )
 
 install_yay() {
@@ -74,7 +78,7 @@ echo "Arch Linux Setup - Niri + DMS"
 
 # Install base dependencies first
 echo "Installing base dependencies..."
-sudo pacman -Syu --needed --noconfirm base-devel git
+sudo pacman -Syu --needed --noconfirm base-devel git curl wget
 
 install_yay
 install_packages
