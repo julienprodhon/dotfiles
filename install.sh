@@ -18,12 +18,14 @@ PACMAN_PKGS=(
 AUR_PKGS=(
     qt5-wayland
     niri
+    sddm
     obsidian
     protonvpn
     zen-browser-bin
     keepass-xc
     zsh
     tmux
+    telegram-desktop
 )
 
 install_yay() {
