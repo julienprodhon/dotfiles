@@ -21,6 +21,7 @@ AUR_PKGS=(
     protonvpn
     zen-browser-bin
     keepass-xc
+    zsh
 )
 
 install_yay() {
