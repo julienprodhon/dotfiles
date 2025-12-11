@@ -19,7 +19,7 @@ if ! command -v yay &>/dev/null; then
 fi
 
 # Install WM and utilities
-yay -S --needed --noconfirm qt5-wayland niri sddm zsh tmux
+yay -S --needed --noconfirm qt5-wayland sddm zsh tmux unzip npm man-pages tldr
 
 # Install oh-my-zsh
 if [[ ! -d "$HOME/.oh-my-zsh" ]]; then
@@ -29,7 +29,11 @@ else
     echo "oh-my-zsh already installed"
 fi
 
-# Install Dank Material Shell
+# Install Dank Material Shell, Niri and Ghostty
 curl -fsSL https://install.danklinux.com | sh
+
+yay -S -needed --noconfirm greetd-dms-greeter-git
+dms greeter enable
+dms greeter sync
 
 echo "WM and utilities installed!"

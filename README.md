@@ -31,7 +31,6 @@ Run setup scripts in order:
 
 # Applications (install-apps.sh)
 - **Editor**: neovim
-- **Terminal**: alacritty
 - **Communication**: signal-desktop, telegram-desktop
 - **Browser**: zen-browser-bin
 - **Productivity**: obsidian, keepass-xc
