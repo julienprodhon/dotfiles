@@ -4,7 +4,7 @@ set -e
 echo "=== Installing Applications ==="
 
 # Install from official repos
-sudo pacman -S --needed --noconfirm neovim alacritty signal-desktop
+sudo pacman -S --needed --noconfirm neovim signal-desktop
 
 # Install from AUR
 yay -S --needed --noconfirm obsidian protonvpn zen-browser-bin keepass-xc telegram-desktop
