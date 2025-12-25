@@ -19,7 +19,7 @@ if ! command -v yay &>/dev/null; then
 fi
 
 # Install WM and utilities
-yay -S --needed --noconfirm qt5-wayland sddm zsh tmux unzip npm man-pages tldr
+yay -S --needed --noconfirm qt5-wayland sddm zsh tmux unzip npm man-pages tldr uv python-pip luarocks tree-sitter-cli ripgrep
 
 # Install oh-my-zsh
 if [[ ! -d "$HOME/.oh-my-zsh" ]]; then
