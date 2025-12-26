@@ -1,37 +1,43 @@
+# Arch Linux Setup
+
 Minimal Arch Linux setup with Niri window manager and personal configurations.
 
 ```
 dotfiles/
-├── install-wm.sh          # Install window manager and utilities
-├── install-apps.sh        # Install applications
-├── sync-dotfiles.sh       # Sync configurations to ~/.config
-├── config/                # Application configs
+├── install-wm.sh          
+├── install-apps.sh        
+├── sync-dotfiles.sh       
+├── config/                
 ├── .bashrc
 ├── .zshrc
 └── .profile
 ```
 
+## Usage
+
 Run setup scripts in order:
+
 ```bash
-./install-wm.sh      # Install WM, utilities, and oh-my-zsh
-./install-apps.sh    # Install applications
-./sync-dotfiles.sh   # Sync your configs
+./install-wm.sh
+./install-apps.sh
+./sync-dotfiles.sh
 ```
 
-- Existing configs are overwritten when syncing
-- Dotfiles (.bashrc, .zshrc, .profile) are copied only if they don't exist locally
+Existing configs are overwritten when syncing. Dotfiles (.bashrc, .zshrc, .profile) are copied only if they don't exist locally.
 
-# Window Manager & Utilities (install-wm.sh)
+## Window Manager & Utilities
+
 - **Base**: base-devel, git, curl, wget
 - **AUR Helper**: yay
 - **Window Manager**: niri, sddm, qt5-wayland
 - **Shell**: zsh, oh-my-zsh
-- **Utilities**: tmux
-- **Desktop**: Dank Material Shell
+- **Utilities**: tmux, npm, man-pages, tldr
+- **Desktop**: Dank Material Shell, greetd-dms-greeter-git
 
-# Applications (install-apps.sh)
+## Applications
+
 - **Editor**: neovim
 - **Communication**: signal-desktop, telegram-desktop
 - **Browser**: zen-browser-bin
-- **Productivity**: obsidian, keepass-xc
+- **Productivity**: obsidian, proton-pass
 - **VPN**: protonvpn
