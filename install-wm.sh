@@ -45,5 +45,7 @@ curl -fsSL https://install.danklinux.com | sh
 yay -S --needed --noconfirm greetd-dms-greeter-git
 dms greeter enable
 dms greeter sync
+dms ipc call wallpaper set ~/.config/DankMaterialShell/wallpapers/oUkQ6n8.jpeg
+dms ipc call profile setImage /home/julien/.config/DankMaterialShell/profile.jpg
 
 echo "WM and utilities installed!"
