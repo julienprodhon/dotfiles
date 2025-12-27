@@ -16,7 +16,7 @@ if ! command -v yay &>/dev/null; then
   rm -rf "$TEMP"
 fi
 
-yay -S --needed --noconfirm qt5-wayland sddm zsh tmux npm man-pages tldr
+yay -S --needed --noconfirm qt5-wayland sddm zsh tmux npm man man-pages tldr ripgrep bat yazi ffmpeg fzf
 
 if [[ ! -d "$HOME/.oh-my-zsh" ]]; then
   echo "Installing oh-my-zsh..."
