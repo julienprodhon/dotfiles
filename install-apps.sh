@@ -5,6 +5,6 @@ echo "=== Installing Applications ==="
 
 sudo pacman -S --needed --noconfirm neovim signal-desktop
 
-yay -S --needed --noconfirm obsidian protonvpn proton-pass-bin zen-browser-bin telegram-desktop vlc qview
+yay -S --needed --noconfirm obsidian protonvpn proton-pass-bin zen-browser-bin telegram-desktop vlc qview zathura
 
 echo "Applications installed!"
