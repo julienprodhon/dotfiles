@@ -1,43 +1,43 @@
 # Arch Linux Setup
 
-Minimal Arch Linux setup with Niri window manager and personal configurations.
+Automated Arch Linux installation with DMS (Dank Material Shell), Niri, and Ghostty.
 
-```
-dotfiles/
-├── install-wm.sh          
-├── install-apps.sh        
-├── sync-dotfiles.sh       
-├── config/                
-├── .bashrc
-├── .zshrc
-└── .profile
-```
+## Installation
 
-## Usage
-
-Run setup scripts in order:
+### Step 1: Generate archinstall Configuration
 
 ```bash
-./install-wm.sh
-./install-apps.sh
+./generate-archinstall-json.sh
+```
+
+### Step 2: Install Base System
+
+```bash
+archinstall --config archinstall_user_configuration.json
+```
+
+You'll manually configure: disk partitioning, hostname, passwords, user accounts, timezone.
+
+### Step 3: Post-Installation
+
+After rebooting, run:
+
+```bash
+./setup-system.sh
 ./sync-dotfiles.sh
 ```
 
-Existing configs are overwritten when syncing. Dotfiles (.bashrc, .zshrc, .profile) are copied only if they don't exist locally.
+Log out and log back in for changes to take effect.
 
-## Window Manager & Utilities
+## Package Files
 
-- **Base**: base-devel, git, curl, wget
-- **AUR Helper**: yay
-- **Window Manager**: niri, sddm, qt5-wayland
-- **Shell**: zsh, oh-my-zsh
-- **Utilities**: tmux, npm, man-pages, tldr
-- **Desktop**: Dank Material Shell, greetd-dms-greeter-git
+- **core-extra-packages.txt** - Installed via archinstall
+- **aur-packages.txt** - Installed via yay
 
-## Applications
+## Customization
 
-- **Editor**: neovim
-- **Communication**: signal-desktop, telegram-desktop
-- **Browser**: zen-browser-bin
-- **Productivity**: obsidian, proton-pass
-- **VPN**: protonvpn
+Set DMS wallpaper and profile:
+```bash
+dms ipc call wallpaper set /path/to/wallpaper.jpg
+dms ipc call profile setImage /path/to/image.jpg
+```

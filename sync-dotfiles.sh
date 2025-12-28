@@ -6,19 +6,21 @@ CONFIG_DIR="${HOME}/.config"
 
 echo "=== Syncing Dotfiles ==="
 
-if [[ -d "$SCRIPT_DIR/config" ]]; then
-  for dir in "$SCRIPT_DIR/config"/*; do
-    [[ -d "$dir" ]] || continue
+echo "Syncing config directories..."
+for dir in "$SCRIPT_DIR/config"/*; do
+  [[ -d "$dir" ]] || continue
+  dir_name=$(basename "$dir")
+  echo "Syncing $dir_name..."
+  rm -rf "$CONFIG_DIR/$dir_name"
+  cp -r "$dir" "$CONFIG_DIR/"
+done
 
-    dir_name=$(basename "$dir")
-    echo "Syncing $dir_name..."
-    rm -rf "$CONFIG_DIR/$dir_name"
-    cp -r "$dir" "$CONFIG_DIR/"
-  done
-else
-  echo "No config/ folder found in $SCRIPT_DIR"
-fi
+echo "Syncing dotfiles to home directory..."
+for dotfile in .bashrc .zshrc .profile; do
+  [[ -f "$SCRIPT_DIR/$dotfile" ]] && cp -f "$SCRIPT_DIR/$dotfile" ~/
+done
 
-cp -n "$SCRIPT_DIR"/.{bashrc,zshrc,profile} ~/ 2>/dev/null || true
+echo "Updating .zshrc with plugin configuration..."
+sed -i 's/plugins=(git)/plugins=(git zsh-autosuggestions zsh-syntax-highlighting)/' ~/.zshrc
 
-echo "Dotfiles synced!"
+echo "Dotfiles synced successfully!"

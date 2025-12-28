@@ -1,0 +1,9 @@
+# WEB BROWSERS
+zen-browser-bin
+
+# SECURITY & VPN
+protonvpn
+proton-pass-bin
+
+# IMAGE VIEWERS
+qview
