@@ -1,42 +1,22 @@
-# Robbyrussell-like theme
+# Robbyrussell theme
 format = """
-$username\
-$hostname\
+$character\
 $directory\
 $git_branch\
-$git_state\
-$git_status\
-$python\
-$rust\
-$cmake\
-$zig\
-$docker_context\
-$character"""
+$git_status"""
+
+add_newline = false
 
 [character]
-success_symbol = "[➜](bold green)"
-error_symbol = "[➜](bold red)"
+success_symbol = "[➜](bold green) "
+error_symbol = "[➜](bold red) "
 
 [directory]
-truncation_length = 3
-truncate_to_repo = true
-style = "cyan bold"
+truncation_length = 1
 
 [git_branch]
-format = "[$symbol$branch]($style) "
-symbol = " "
-style = "bold purple"
+format = '[$symbol:\([$branch](bold red)\)](bold blue) '
+symbol = 'git'
 
 [git_status]
-format = '([$all_status$ahead_behind]($style) )'
-style = "bold red"
-
-[python]
-format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
-symbol = "🐍 "
-
-[rust]
-symbol = "🦀 "
-
-[docker_context]
-symbol = "🐳 "
+style = "bold yellow"

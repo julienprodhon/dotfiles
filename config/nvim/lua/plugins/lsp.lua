@@ -7,23 +7,21 @@ return {
   config = function()
     -- Setup Mason
     require("mason").setup()
-    
+
     local capabilities = require('cmp_nvim_lsp').default_capabilities()
-    
+
     -- Setup mason-lspconfig
     require("mason-lspconfig").setup({
       ensure_installed = {
-        "lua_ls",        -- Lua
-        "bashls",        -- Bash
-        "clangd",        -- C/C++
-        "cmake",         -- CMake
-        "dockerls",      -- Dockerfile
-        "jsonls",        -- JSON
-        "julials",       -- Julia
-        "ruff",          -- Python (linting + formatting)
-        "sqlls",         -- SQL
-        "texlab",        -- LaTeX
-        "yamlls",        -- YAML
+        "lua_ls",   -- Lua
+        "bashls",   -- Bash
+        "dockerls", -- Dockerfile
+        "jsonls",   -- JSON
+        "ruff",     -- Python (linting + formatting)
+        "sqlls",    -- SQL
+        "texlab",   -- LaTeX
+        "yamlls",   -- YAML
+        -- System packages: clangd (clang), julials (Julia Pkg)
       },
     })
 
@@ -43,7 +41,7 @@ return {
         vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
         vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
         vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, opts)
-        
+
         -- Auto-format on save
         vim.api.nvim_create_autocmd("BufWritePre", {
           buffer = ev.buf,
@@ -56,10 +54,10 @@ return {
 
     -- List of servers to enable
     local servers = {
-      "bashls", "clangd", "cmake", "dockerls",
-      "jsonls", "julials", "ruff", "sqlls", "texlab", "yamlls"
+      "bashls", "clangd", "dockerls", "jsonls",
+      "julials", "lua_ls", "ruff", "sqlls", "texlab", "yamlls"
     }
-    
+
     -- Lua with special settings
     vim.lsp.config.lua_ls = {
       capabilities = capabilities,
@@ -69,7 +67,7 @@ return {
         },
       },
     }
-    
+
     -- Clangd with special settings
     vim.lsp.config.clangd = {
       capabilities = capabilities,
@@ -80,7 +78,7 @@ return {
         "--header-insertion=iwyu",
       },
     }
-    
+
     -- Enable all servers (including lua_ls)
     table.insert(servers, 1, "lua_ls")
     vim.lsp.enable(servers, { capabilities = capabilities })

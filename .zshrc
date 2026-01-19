@@ -1,6 +1,10 @@
 # Basic completion
 autoload -U compinit && compinit
 
+# Word movement (Ctrl+Arrow)
+bindkey "^[[1;5C" forward-word
+bindkey "^[[1;5D" backward-word
+
 # History
 HISTSIZE=10000
 SAVEHIST=10000
@@ -57,4 +61,6 @@ extract() {
 }
 
 # Starship prompt (must be at the end)
+export STARSHIP_CONFIG=~/.config/starship/starship.toml
 eval "$(starship init zsh)"
+export PATH="$HOME/.local/bin:$PATH"
