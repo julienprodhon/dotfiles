@@ -47,5 +47,5 @@ keybind = shift+enter=text:\n
 # Rando stuff
 gtk-single-instance = true
 
-# Dank color generation
-config-file = ./config-dankcolors
+# DMS dynamic theme (auto-syncs with system)
+theme = dankcolors

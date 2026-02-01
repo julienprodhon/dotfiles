@@ -1,0 +1,3 @@
+[templates.dmstmux]
+input_path = '/home/julien/.config/matugen/templates/tmux.conf'
+output_path = '/home/julien/.config/tmux/dankcolors.conf'
