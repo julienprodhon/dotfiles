@@ -19,43 +19,41 @@ binds {
     Mod+Shift+V { switch-focus-between-floating-and-tiling; }
     Mod+W { toggle-column-tabbed-display; }
 
-    // === Focus Navigation (HJKL only for compact keyboard) ===
+    // === HJKL Navigation ===
+    // 4-layer model: Mod=focus local, Shift=move local, Ctrl=focus big, Alt=move big
+    // H/L axis = columns & monitors (horizontal), J/K axis = windows & workspaces (vertical)
+
+    // Focus local (Mod)
     Mod+H { focus-column-left; }
     Mod+J { focus-window-down; }
     Mod+K { focus-window-up; }
     Mod+L { focus-column-right; }
 
-    // === Window Movement (HJKL only for compact keyboard) ===
+    // Move local (Mod+Shift)
     Mod+Shift+H { move-column-left; }
     Mod+Shift+J { move-window-down; }
     Mod+Shift+K { move-window-up; }
     Mod+Shift+L { move-column-right; }
 
-    // === Column Navigation (A/E for compact keyboard) ===
+    // Focus big scope (Mod+Ctrl) — H/L=monitor, J/K=workspace
+    Mod+Ctrl+H { focus-monitor-left; }
+    Mod+Ctrl+J { focus-workspace-down; }
+    Mod+Ctrl+K { focus-workspace-up; }
+    Mod+Ctrl+L { focus-monitor-right; }
+
+    // Move big scope (Mod+Alt) — H/L=monitor, J/K=workspace
+    Mod+Alt+H { move-column-to-monitor-left; }
+    Mod+Alt+J { move-column-to-workspace-down; }
+    Mod+Alt+K { move-column-to-workspace-up; }
+    Mod+Alt+L { move-column-to-monitor-right; }
+
+    // === Column Navigation (A/E for first/last) ===
     Mod+A { focus-column-first; }
     Mod+E { focus-column-last; }
     Mod+Ctrl+A { move-column-to-first; }
     Mod+Ctrl+E { move-column-to-last; }
 
-    // === Monitor Navigation (HJKL only for compact keyboard) ===
-    Mod+Ctrl+H { focus-monitor-left; }
-    Mod+Ctrl+J { focus-monitor-down; }
-    Mod+Ctrl+K { focus-monitor-up; }
-    Mod+Ctrl+L { focus-monitor-right; }
-
-    // === Move to Monitor (HJKL only for compact keyboard) ===
-    Mod+Shift+Ctrl+H { move-column-to-monitor-left; }
-    Mod+Shift+Ctrl+J { move-column-to-monitor-down; }
-    Mod+Shift+Ctrl+K { move-column-to-monitor-up; }
-    Mod+Shift+Ctrl+L { move-column-to-monitor-right; }
-
-    // === Workspace Navigation (D/U for Down/Up, Vim-style) ===
-    Mod+D { focus-workspace-down; }
-    Mod+U { focus-workspace-up; }
-    Mod+Ctrl+D { move-column-to-workspace-down; }
-    Mod+Ctrl+U { move-column-to-workspace-up; }
-
-    // === Move Workspaces (D/U for Down/Up, Vim-style) ===
+    // === Reorder Workspaces ===
     Mod+Shift+D { move-workspace-down; }
     Mod+Shift+U { move-workspace-up; }
 
@@ -116,7 +114,7 @@ binds {
     Mod+Shift+Minus { set-window-height "-10%"; }
     Mod+Shift+Equal { set-window-height "+10%"; }
 
-    // === Screenshots (Mod+Shift+S for compact keyboard) ===
+    // === Screenshots ===
     Mod+Shift+S { screenshot; }
     Mod+Ctrl+S { screenshot-screen; }
     Mod+Alt+S { screenshot-window; }
