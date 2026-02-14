@@ -3,33 +3,11 @@ return {
 	build = ":TSUpdate",
 	main = "nvim-treesitter.config",
 	opts = {
-		-- Install parsers for these languages
-		ensure_installed = {
-			"bash",
-			"c",
-			"cmake",
-			"comment",
-			"cpp",
-			"csv",
-			"dockerfile",
-			"gitattributes",
-			"gitcommit",
-			"gitignore",
-			"json",
-			"julia",
-			"lua",
-			"make",
-			"vim",
-			"python",
-			"sql",
-			"yaml",
-		},
-
-		-- Install parsers synchronously (only applied to `ensure_installed`)
-		sync_install = false,
-
 		-- Automatically install missing parsers when entering buffer
 		auto_install = true,
+
+		-- Pre-install latex parser (not auto-detected from .tex)
+		ensure_installed = { "latex" },
 
 		highlight = {
 			enable = true,

@@ -10,6 +10,9 @@ return {
 
     local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
+    -- Set default capabilities for all servers
+    vim.lsp.config('*', { capabilities = capabilities })
+
     -- Setup mason-lspconfig
     require("mason-lspconfig").setup({
       ensure_installed = {
@@ -17,10 +20,12 @@ return {
         "bashls",   -- Bash
         "dockerls", -- Dockerfile
         "jsonls",   -- JSON
+        "basedpyright", -- Python (LSP)
         "ruff",     -- Python (linting + formatting)
         "sqlls",    -- SQL
         "texlab",   -- LaTeX
         "yamlls",   -- YAML
+        "zls",      -- Zig
         -- System packages: clangd (clang), julials (Julia Pkg)
       },
     })
@@ -54,13 +59,12 @@ return {
 
     -- List of servers to enable
     local servers = {
-      "bashls", "clangd", "dockerls", "jsonls",
-      "julials", "lua_ls", "ruff", "sqlls", "texlab", "yamlls"
+      "basedpyright", "bashls", "clangd", "dockerls", "jsonls",
+      "julials", "lua_ls", "ruff", "sqlls", "texlab", "yamlls", "zls"
     }
 
     -- Lua with special settings
     vim.lsp.config.lua_ls = {
-      capabilities = capabilities,
       settings = {
         Lua = {
           diagnostics = { globals = { "vim" } },
@@ -70,7 +74,6 @@ return {
 
     -- Clangd with special settings
     vim.lsp.config.clangd = {
-      capabilities = capabilities,
       cmd = {
         "clangd",
         "--background-index",
@@ -79,8 +82,7 @@ return {
       },
     }
 
-    -- Enable all servers (including lua_ls)
-    table.insert(servers, 1, "lua_ls")
-    vim.lsp.enable(servers, { capabilities = capabilities })
+    -- Enable all servers
+    vim.lsp.enable(servers)
   end,
 }
